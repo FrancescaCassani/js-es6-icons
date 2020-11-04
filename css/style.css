@@ -44,8 +44,8 @@ body {
 
 /* ICONE */
 .icons {
-    display: flex;
     flex-grow: 1;
+    display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 20px;

@@ -1,7 +1,4 @@
-$(document).ready(function () {
-
-
-// Lista icone
+// Lista array icone
 const icons = [
     {
       name: 'cat',
@@ -100,6 +97,25 @@ const icons = [
       family: 'fas',
     },
 ];
-    
+
+//Stampare le icone sullo schermo
+const container = $(".icons");
+
+icons.forEach( (icon) => {
+    const {family, prefix, name} = icon;
+
+    const html =
+    `
+    <div class="icon">
+        <i class="${family} ${prefix}${name}"></i>
+        <div class="title">${name}</div>  
+    </div>
+    `;
+
+    container.append(html);
 });
+
+
+
+
 
