@@ -102,18 +102,36 @@ const icons = [
 const container = $(".icons");
 
 icons.forEach( (icon) => {
-    const {family, prefix, name} = icon;
+    const {family, prefix, name, color} = icon;
 
     const html =
     `
     <div class="icon">
-        <i class="${family} ${prefix}${name}"></i>
+        <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
         <div class="title">${name}</div>  
     </div>
     `;
 
     container.append(html);
 });
+
+
+//Colorare le icone in base al tipo
+const blue = "#0084ff";
+const purple = "#800080";
+const orange = "#ffa500";
+
+const newIcons = icons.map( (icon) => {
+
+    return {
+        ...icon,
+        color: (icon.type === "animal") ? blue : (icon.type === "vegetable") ? purple : orange
+    }
+});
+
+console.table(newIcons);
+
+
 
 
 
