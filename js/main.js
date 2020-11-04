@@ -98,8 +98,9 @@ const icons = [
     },
 ];
 
-//1.Stampare le icone sullo schermo
+//1.Selezione referenze
 const container = $(".icons");
+
 
 //2.Colorare le icone in base al tipo
 const blue = "#0000ff";
@@ -115,6 +116,7 @@ const newIcons = icons.map( (icon) => {
 });
 
 
+//3.Ciclo forEach per stampare a schermo
 newIcons.forEach( (icon) => {
     const {family, prefix, name, color} = icon;
 
@@ -130,8 +132,22 @@ newIcons.forEach( (icon) => {
 });
 
 
-//3.Filtrare icone dal tipo di elemento
-const select =$("#type");
+//4.Filtrare icone dal tipo di elemento
+const select = $("#type");
+
+function getType(icons) {
+    const types = [];
+
+    icons.forEach((icon) => {
+        if(! types.includes(icon.type)) {
+            types.push(icon.type);
+        }
+    });
+    return types;
+};
+
+
+
 
 
 
