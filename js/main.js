@@ -98,11 +98,11 @@ const icons = [
     },
 ];
 
-//Stampare le icone sullo schermo
+//1.Stampare le icone sullo schermo
 const container = $(".icons");
 
-//Colorare le icone in base al tipo
-const blue = "#0084ff";
+//2.Colorare le icone in base al tipo
+const blue = "#0000ff";
 const purple = "#800080";
 const orange = "#ffa500";
 
@@ -114,7 +114,6 @@ const newIcons = icons.map( (icon) => {
     }
 });
 
-console.log(newIcons);
 
 newIcons.forEach( (icon) => {
     const {family, prefix, name, color} = icon;
@@ -129,6 +128,10 @@ newIcons.forEach( (icon) => {
 
     container.append(html);
 });
+
+
+//3.Filtrare icone dal tipo di elemento
+const select =$("#type");
 
 
 
