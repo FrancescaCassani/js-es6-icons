@@ -111,7 +111,7 @@ const newIcons = icons.map( (icon) => {
 
     return {
         ...icon,
-        color: (icon.type === "animal") ? blue : (icon.type === "vegetable") ? purple : orange
+        color: (icon.type === "animal") ? blue : (icon.type === "vegetable") ? orange : purple
     }
 });
 
@@ -131,11 +131,44 @@ newIcons.forEach( (icon) => {
     container.append(html);
 });
 
+console.log(icons);
+console.log(newIcons);
 
-//4.Filtrare icone dal tipo di elemento
-const select = $("#type");
 
-function getType(icons) {
+//3.Filter icons by type
+const select =$("#type");
+const types = getType(icons);
+
+//Generare opzioni
+genOption(types, select);
+
+
+
+
+//*FUNZIONI
+//Funzione per selezionare icone dal tipo di elemento
+function colorIcons(icons, colors) {
+
+  //Get types
+  const types = getType(icons);
+  console.log(types);
+
+  //Assegnare colore al type
+  const newIcons = icons.map((icon) => {
+      const indexType = types.indexOf(icon.type);
+
+      return {
+          ...icon,
+          color: colors[indexType]
+      };
+  });
+  return newIcons;
+};
+
+
+
+//Funzione per estrapolare il tipo senza doppioni
+function getType(icons) {   //per evitare doppioni
     const types = [];
 
     icons.forEach((icon) => {
@@ -145,6 +178,16 @@ function getType(icons) {
     });
     return types;
 };
+
+
+//Funzione generare opzione by type
+function genOption(types, select) {
+  types.forEach((opt) => {
+      select.append(`<option value="${opt}">${opt}</option>`);
+  });
+};
+
+
 
 
 
